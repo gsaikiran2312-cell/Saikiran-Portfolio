@@ -33,3 +33,24 @@ export const resetPortfolio = async (req, res, next) => {
     next(err);
   }
 };
+
+export const loginAdmin = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+    if (email === 'gsaikiran2312@gmail.com' && password === 'gsaikiran2312@') {
+      return res.json({
+        success: true,
+        message: 'Authentication successful! Welcome Admin.',
+        token: 'gsk_admin_jwt_token_2026',
+        user: { name: 'GANDHUDI SAI KIRAN', email: 'gsaikiran2312@gmail.com', role: 'Admin' }
+      });
+    }
+    return res.status(401).json({
+      success: false,
+      message: 'Invalid login credentials. Please check your email and password.'
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+

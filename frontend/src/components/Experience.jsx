@@ -1,86 +1,68 @@
 import React from 'react';
-import { Briefcase, Calendar, MapPin, ChevronRight } from 'lucide-react';
-import { workExperience } from '../data/portfolioData';
+import { Briefcase, Calendar, CheckCircle2 } from 'lucide-react';
+import { workExperience as defaultExperience } from '../data/portfolioData';
 
-export default function Experience() {
+export default function Experience({ workExperience = defaultExperience }) {
   return (
-    <section id="experience" className="py-20 relative">
+    <section id="experience" className="py-20 relative bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-mono font-semibold mb-3">
+        {/* Section Heading */}
+        <div className="flex flex-col items-center text-center mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-mono font-bold uppercase tracking-wider mb-3">
             <Briefcase className="w-3.5 h-3.5" />
-            <span>CAREER HISTORY</span>
+            <span>WORK HISTORY</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">Experience</span>
+            Experience
           </h2>
-          <p className="text-sm text-slate-600 max-w-xl mt-3 font-normal">
-            Hands-on commercial experience engineering enterprise full-stack software applications.
-          </p>
-          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 rounded-full mt-4" />
+          <div className="w-16 h-1 bg-indigo-600 rounded-full mt-3" />
         </div>
 
-        {/* Vertical Timeline */}
-        <div className="max-w-4xl mx-auto relative pl-6 sm:pl-8 border-l border-slate-300 space-y-12">
+        {/* Timeline List */}
+        <div className="max-w-4xl mx-auto">
           {workExperience.map((item) => (
-            <div key={item.id} className="relative group">
-              
-              {/* Node Circle */}
-              <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-white border-2 border-indigo-600 group-hover:bg-indigo-600 group-hover:scale-125 transition-all shadow-md shadow-indigo-500/30" />
-
-              <div className="glass-card p-6 sm:p-8 rounded-3xl border border-slate-200 hover:border-indigo-300 transition-all duration-300">
-                
-                {/* Header Metadata */}
-                <div className="flex flex-wrap items-start justify-between gap-4 mb-4 pb-4 border-b border-slate-200">
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
-                      {item.role}
-                    </h3>
-                    <p className="text-sm font-semibold text-indigo-600 flex items-center gap-1.5 mt-0.5">
-                      <span>{item.company}</span>
-                      <span className="text-slate-400">•</span>
-                      <span className="text-slate-500 text-xs font-normal">{item.type}</span>
-                    </p>
-                  </div>
-
-                  <div className="flex items-center gap-2.5 text-xs font-mono text-slate-600 font-medium">
-                    <span className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 border border-slate-200">
-                      <Calendar className="w-3.5 h-3.5 text-indigo-600" />
-                      {item.period}
-                    </span>
-                    <span className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 border border-slate-200">
-                      <MapPin className="w-3.5 h-3.5 text-purple-600" />
-                      {item.location}
-                    </span>
+            <div
+              key={item.id || item.company}
+              className="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xs space-y-6"
+            >
+              {/* Header Info */}
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-slate-200">
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
+                    {item.company}
+                  </h3>
+                  <div className="text-base font-bold text-indigo-600 mt-1">
+                    {item.position || item.role}
                   </div>
                 </div>
 
-                <p className="text-sm text-slate-700 mb-4 font-medium leading-relaxed">
-                  {item.description}
-                </p>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-700 text-xs font-mono font-semibold self-start md:self-auto shadow-2xs">
+                  <Calendar className="w-3.5 h-3.5 text-indigo-600" />
+                  <span>{item.duration || item.period}</span>
+                </div>
+              </div>
 
-                {/* Bullet Points */}
-                <div className="space-y-2.5 mb-6">
-                  {item.achievements.map((bullet, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 font-normal">
-                      <ChevronRight className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
-                      <span className="leading-relaxed">{bullet}</span>
+              {/* Description */}
+              <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">
+                "{item.description}"
+              </p>
+
+              {/* Responsibilities List */}
+              <div className="space-y-2.5">
+                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 mb-3">
+                  Key Responsibilities & Contributions:
+                </h4>
+                <div className="grid grid-cols-1 gap-2.5">
+                  {(item.responsibilities || item.achievements || []).map((resp, idx) => (
+                    <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700">
+                      <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
+                      <span className="leading-relaxed">{resp}</span>
                     </div>
                   ))}
                 </div>
-
-                {/* Tech Pills */}
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-200">
-                  {item.tech.map((t, i) => (
-                    <span key={i} className="px-3 py-1 rounded-lg bg-slate-100 text-indigo-700 text-[11px] font-mono font-semibold border border-slate-200">
-                      #{t}
-                    </span>
-                  ))}
-                </div>
-
               </div>
+
             </div>
           ))}
         </div>
@@ -89,3 +71,4 @@ export default function Experience() {
     </section>
   );
 }
+

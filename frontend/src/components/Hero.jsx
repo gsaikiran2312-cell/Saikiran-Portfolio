@@ -1,128 +1,108 @@
 import React from 'react';
-import { ArrowRight, Download, Mail, Sparkles, Terminal, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
 import { personalDetails as defaultDetails } from '../data/portfolioData';
-import { GithubIcon, LinkedinIcon } from './SocialIcons';
 
-export default function Hero({ personalDetails = defaultDetails, onOpenContact }) {
+export default function Hero({ personalDetails = defaultDetails }) {
   return (
-    <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
-      {/* Subtle Ambient Background Lighting for Light Theme */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[550px] h-[300px] bg-gradient-to-tr from-indigo-500/10 via-purple-500/10 to-pink-500/10 blur-[120px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute top-10 right-10 w-64 h-64 bg-indigo-500/10 blur-[90px] rounded-full pointer-events-none -z-10" />
+    <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50">
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      {/* Background Grid Accent */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Column: Hero Text Content */}
+          {/* Left Column: Content */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             
-            {/* Professional Status Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-semibold mb-6 shadow-xs">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span>{personalDetails.status}</span>
+            {/* Small badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-mono font-bold uppercase tracking-wider mb-6">
+              <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse" />
+              <span>FULL STACK DEVELOPER</span>
             </div>
 
-            {/* Name */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15] mb-4">
-              {personalDetails.name}
+            {/* Main Heading */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1] mb-4">
+              GANDHUDI SAI KIRAN
             </h1>
 
-            {/* Professional Subtitles */}
-            <div className="flex flex-wrap items-center gap-2 text-lg sm:text-xl font-bold text-indigo-600 mb-6">
-              <span>{personalDetails.role}</span>
-            </div>
+            {/* Secondary Heading */}
+            <h2 className="text-xl sm:text-2xl font-bold text-indigo-600 mb-6 tracking-tight">
+              Building scalable & modern web applications
+            </h2>
 
-            {/* Short Introduction Paragraph */}
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mb-8 font-normal">
-              {personalDetails.tagline}
+            {/* Description */}
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mb-6">
+              I'm a Full Stack Developer focused on building reliable, responsive, and user-friendly applications using modern frontend, backend, and database technologies.
             </p>
 
-            {/* Recruiter CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-3.5 mb-10 w-full sm:w-auto">
+            {/* Technology Line */}
+            <div className="inline-flex flex-wrap items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 border border-slate-200 text-xs sm:text-sm font-semibold text-slate-700 font-mono mb-8">
+              <span>React.js</span>
+              <span className="text-indigo-400">•</span>
+              <span>Node.js</span>
+              <span className="text-indigo-400">•</span>
+              <span>Express.js</span>
+              <span className="text-indigo-400">•</span>
+              <span>MongoDB</span>
+              <span className="text-indigo-400">•</span>
+              <span>Java</span>
+              <span className="text-indigo-400">•</span>
+              <span>Spring Boot</span>
+            </div>
+
+            {/* Buttons */}
+            <div className="flex flex-wrap items-center gap-4 mb-6 w-full sm:w-auto">
               <a
                 href="#projects"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold text-sm shadow-md shadow-indigo-600/25 hover:-translate-y-0.5 transition-all duration-200"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm shadow-md shadow-indigo-600/20 hover:-translate-y-0.5 transition-all duration-200"
               >
-                <span>View My Work</span>
+                <span>View Projects</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 
               <a
                 href="#contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 font-semibold text-sm border border-slate-200 transition-all duration-200"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 shadow-xs hover:border-slate-400 transition-all duration-200"
               >
-                <Mail className="w-4 h-4 text-purple-600" />
-                <span>Contact Me</span>
+                <Download className="w-4 h-4 text-indigo-600" />
+                <span>Download Resume</span>
               </a>
             </div>
 
-            {/* Social Links & Location */}
-            <div className="pt-6 border-t border-slate-200/80 w-full flex flex-wrap items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <span className="text-xs text-slate-500 uppercase tracking-wider font-mono font-semibold">Connect:</span>
-                <div className="flex items-center gap-2">
-                  <a
-                    href={personalDetails.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-2.5 rounded-xl bg-white border border-slate-200 hover:border-indigo-500 text-slate-700 hover:text-indigo-600 shadow-xs transition-colors"
-                    title="GitHub Profile"
-                  >
-                    <GithubIcon className="w-4 h-4" />
-                  </a>
-                  <a
-                    href={personalDetails.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-2.5 rounded-xl bg-white border border-slate-200 hover:border-indigo-500 text-slate-700 hover:text-indigo-600 shadow-xs transition-colors"
-                    title="LinkedIn Profile"
-                  >
-                    <LinkedinIcon className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 text-xs text-slate-500 font-mono font-medium">
-                <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                <span>{personalDetails.location}</span>
-              </div>
-            </div>
+            {/* Secondary Text */}
+            <p className="text-xs sm:text-sm text-slate-500 font-medium flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-500" />
+              <span>Currently building real-world applications at Speshway Solutions.</span>
+            </p>
 
           </div>
 
-          {/* Right Column: Sleek Developer Snapshot Box */}
-          <div className="lg:col-span-5 flex justify-center relative">
-            <div className="bg-slate-900 p-6 rounded-3xl border border-slate-800 max-w-sm sm:max-w-md w-full shadow-2xl shadow-slate-900/10">
+          {/* Right Column: Premium Developer Portrait Card */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="relative w-full max-w-md">
               
-              <div className="flex items-center justify-between pb-4 border-b border-slate-800 mb-4">
-                <div className="flex items-center gap-2">
-                  <Terminal className="w-4 h-4 text-indigo-400" />
-                  <span className="text-xs font-mono font-semibold text-slate-300">developer.profile.js</span>
+              {/* High-end Framed Profile Image Card */}
+              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border-4 border-white shadow-2xl bg-slate-900 group">
+                <img
+                  src="/hero-profile.jpg"
+                  alt="GANDHUDI SAI KIRAN"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  onError={(e) => {
+                    e.target.src = '/avatar.jpg';
+                  }}
+                />
+                
+                {/* Gradient shadow overlay at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
+
+                {/* Floating Title Overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white space-y-1">
+                  <h3 className="text-xl font-bold tracking-tight">GANDHUDI SAI KIRAN</h3>
+                  <p className="text-xs font-mono text-indigo-300 font-semibold uppercase tracking-wider">
+                    MERN Stack & Java Developer
+                  </p>
                 </div>
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-              </div>
-
-              <div className="space-y-3 font-mono text-xs text-slate-300 leading-relaxed">
-                <p className="text-purple-400"><span className="text-indigo-400">const</span> developer = &#123;</p>
-                <p className="pl-4"><span className="text-pink-400">name:</span> <span className="text-amber-300">'{personalDetails.name}'</span>,</p>
-                <p className="pl-4"><span className="text-pink-400">role:</span> <span className="text-amber-300">'{personalDetails.role}'</span>,</p>
-                <p className="pl-4"><span className="text-pink-400">experience:</span> <span className="text-emerald-400">'1.6 Years'</span>,</p>
-                <p className="pl-4"><span className="text-pink-400">stack:</span> [</p>
-                <p className="pl-8 text-slate-400">'React.js', 'Node.js', 'Express.js',</p>
-                <p className="pl-8 text-slate-400">'MongoDB', 'REST APIs', 'Tailwind'</p>
-                <p className="pl-4">],</p>
-                <p className="pl-4"><span className="text-pink-400">location:</span> <span className="text-amber-300">'{personalDetails.location}'</span></p>
-                <p className="text-purple-400">&#125;;</p>
-              </div>
-
-              <div className="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
-                <span className="flex items-center gap-1.5 text-indigo-300 font-medium">
-                  <Sparkles className="w-3.5 h-3.5 text-indigo-400" /> Enterprise Systems
-                </span>
-                <span className="font-mono text-[11px] text-slate-500">Fleet • Restaurant • Event</span>
               </div>
 
             </div>
@@ -133,3 +113,4 @@ export default function Hero({ personalDetails = defaultDetails, onOpenContact }
     </section>
   );
 }
+

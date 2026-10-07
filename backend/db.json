@@ -1,11 +1,22 @@
 {
   "personalDetails": {
-    "name": "SAI KIRAN GANDHUDI",
-    "role": "Full Stack Developer | MERN Stack Developer",
-    "tagline": "Full Stack Developer with 1.6 years of experience building scalable web applications using React.js, Node.js, Express.js, JavaScript, MongoDB, HTML, CSS, and RESTful APIs.",
-    "bio": "Full Stack Developer with 1.6 years of experience in developing scalable web applications using React.js, Node.js, Express.js, JavaScript, MongoDB, HTML, CSS, and RESTful APIs. Experienced in building enterprise applications including Fleet Management, Restaurant Management, and Event Management systems, with expertise in role-based authentication, API development, database management, responsive UI development, and application performance optimization. Strong understanding of full-stack development, Agile methodologies, Git/GitHub, and end-to-end application development.",
+    "name": "GANDHUDI SAI KIRAN",
+    "brandLogo": "GSK",
+    "role": "Full Stack Developer",
+    "secondaryRole": "MERN Stack Developer at Speshway Solutions Pvt. Ltd.",
+    "tagline": "Building scalable, responsive, and user-focused web applications with modern technologies.",
+    "heroDescription": "I'm a Full Stack Developer focused on building reliable, responsive, and user-friendly applications using modern frontend, backend, and database technologies.",
+    "status": "FULL STACK DEVELOPER",
+    "experience": "1.6+ Years Exp",
+    "primaryTech": [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Java",
+      "Spring Boot"
+    ],
     "location": "Andhra Pradesh, India",
-    "status": "Full Stack / MERN Developer • 1.6+ Years Exp",
     "avatar": "/assets/avatar.jpg",
     "email": "gsaikiran2312@gmail.com",
     "phone": "+91 6302241083",
@@ -13,64 +24,46 @@
     "linkedin": "https://linkedin.com/in/saikiran-gandhudi",
     "resumeUrl": "#contact"
   },
-  "aboutHighlights": [
-    "1.6+ Years Experience",
-    "Full Stack Development",
-    "REST API Development",
-    "MongoDB Database",
-    "Role-Based Authentication",
-    "Responsive UI (Tailwind)",
-    "Agile Development"
-  ],
-  "stats": [
-    {
-      "id": 1,
-      "label": "Years of Experience",
-      "value": "1.6+",
-      "icon": "Clock"
-    },
-    {
-      "id": 2,
-      "label": "Enterprise Projects",
-      "value": "3+",
-      "icon": "Code2"
-    },
-    {
-      "id": 3,
-      "label": "Core Stack",
-      "value": "MERN",
-      "icon": "Layers"
-    },
-    {
-      "id": 4,
-      "label": "API & DB Reliability",
-      "value": "100%",
-      "icon": "Zap"
-    }
-  ],
+  "aboutData": {
+    "heading": "About Me",
+    "paragraphs": [
+      "I'm a Full Stack Developer passionate about building modern, scalable, and user-focused web applications.",
+      "I specialize in developing end-to-end applications using React.js, Node.js, Express.js, MongoDB, Java, and Spring Boot. I enjoy transforming business requirements into clean, efficient, and responsive digital solutions.",
+      "I have hands-on experience working on real-world applications including Restaurant Management, Fleet Management, Event Management, and Multi-Tenant SaaS platforms.",
+      "I focus on writing maintainable code, creating intuitive user experiences, integrating REST APIs, managing databases, and building reliable application workflows."
+    ],
+    "stats": [
+      {
+        "value": "1.6+",
+        "label": "Years Experience"
+      },
+      {
+        "value": "4+",
+        "label": "Real-World Projects"
+      },
+      {
+        "value": "Full Stack",
+        "label": "Development"
+      },
+      {
+        "value": "MERN + Java",
+        "label": "Technology Stack"
+      }
+    ]
+  },
   "skillCategories": [
-    {
-      "id": "languages",
-      "title": "Languages",
-      "icon": "Code",
-      "skills": [
-        "Java",
-        "JavaScript",
-        "HTML",
-        "CSS"
-      ]
-    },
     {
       "id": "frontend",
       "title": "Frontend",
       "icon": "Layout",
       "skills": [
         "React.js",
+        "JavaScript",
         "HTML5",
         "CSS3",
-        "Tailwind CSS",
         "Bootstrap",
-        "Responsive Web Design"
+        "Tailwind CSS",
+        "Responsive Design"
       ]
     },
     {
@@ -80,278 +73,257 @@
       "skills": [
         "Node.js",
         "Express.js",
-        "RESTful APIs",
-        "MVC Architecture"
+        "Java",
+        "Spring Boot",
+        "REST APIs",
+        "JWT Authentication",
+        "Socket.IO"
       ]
     },
     {
-      "id": "databases",
-      "title": "Databases",
+      "id": "database",
+      "title": "Database",
       "icon": "Database",
       "skills": [
         "MongoDB",
-        "SQL (Basics)"
+        "MySQL",
+        "Oracle SQL"
       ]
     },
     {
       "id": "tools",
-      "title": "Tools & IDEs",
+      "title": "Tools & Environment",
       "icon": "Wrench",
       "skills": [
-        "Git & GitHub",
-        "Antigravity IDE",
-        "Eclipse IDE",
-        "VS Code"
-      ]
-    },
-    {
-      "id": "core",
-      "title": "Core Concepts",
-      "icon": "Cpu",
-      "skills": [
-        "OOP",
-        "Data Structures",
-        "API Integration",
-        "Database Management",
-        "SDLC",
-        "Performance Optimization",
-        "Version Control"
-      ]
-    },
-    {
-      "id": "uiux",
-      "title": "UI/UX Design",
-      "icon": "Palette",
-      "skills": [
-        "Figma",
-        "Wireframing",
-        "Prototyping",
-        "User Flows",
-        "Sitemap Design",
-        "Responsive UI Design",
-        "UX Research Basics"
+        "Git",
+        "GitHub",
+        "Postman",
+        "VS Code",
+        "Eclipse",
+        "Vite",
+        "Cloudinary"
       ]
     }
   ],
   "workExperience": [
     {
       "id": 1,
-      "role": "Associate Software Engineer",
-      "company": "Speshway Solutions Pvt. Ltd.",
-      "period": "2025 – Present",
+      "company": "SPESHWAY SOLUTIONS PVT. LTD.",
+      "position": "MERN Stack Developer",
+      "duration": "August 2025 – Present",
       "location": "Hyderabad, India",
-      "type": "Full-time",
-      "description": "Developed and maintained full-stack web applications using React.js, Node.js, Express.js, JavaScript, Tailwind CSS, MongoDB, RESTful APIs, Git, and GitHub.",
-      "achievements": [
-        "Contributed to the development of a Fleet Management System covering vehicle/driver management, trip planning, live tracking, fuel management, maintenance, document management, and fleet operations.",
-        "Developed a Restaurant Management System supporting menu management, QR-based ordering, table management, kitchen operations, billing, payments, and staff workflows through role-based access control.",
-        "Designed and integrated RESTful APIs for frontend-backend communication and third-party service integrations.",
-        "Implemented JWT-based authentication and authorization with role-based access control to secure application workflows.",
-        "Optimized MongoDB schemas and database queries to improve data retrieval and application performance.",
-        "Collaborated with cross-functional teams in Agile environments, contributing to feature development, debugging, testing, code reviews, and issue resolution.",
-        "Improved application performance by optimizing front-end queries, database queries, and API response times.",
-        "Utilized Git/GitHub for version control, branch management, code collaboration, and deployment support."
+      "type": "Full-Time",
+      "description": "Developing and maintaining full-stack web applications using React.js, Node.js, Express.js, and MongoDB.",
+      "responsibilities": [
+        "Develop responsive and reusable React.js components.",
+        "Build RESTful APIs using Node.js and Express.js.",
+        "Design and manage MongoDB data models.",
+        "Implement authentication and authorization using JWT.",
+        "Integrate frontend applications with backend APIs.",
+        "Develop role-based dashboards and business workflows.",
+        "Debug, test, and optimize application performance.",
+        "Collaborate with development and QA teams to resolve issues.",
+        "Manage source code using Git and GitHub.",
+        "Work with production deployments and cloud-based services."
       ],
       "tech": [
         "React.js",
         "Node.js",
         "Express.js",
-        "JavaScript",
-        "Tailwind CSS",
         "MongoDB",
-        "RESTful APIs",
         "JWT",
+        "REST APIs",
         "Git",
-        "GitHub"
-      ]
-    },
-    {
-      "id": 2,
-      "role": "Java Full Stack Developer – Trainee",
-      "company": "J Spiders Pvt. Ltd.",
-      "period": "2022 – 2023",
-      "location": "Hyderabad, India",
-      "type": "Trainee",
-      "description": "Completed comprehensive training in Java Full Stack Development, working on backend APIs, database management, and responsive UI implementations.",
-      "achievements": [
-        "Completed rigorous hands-on modules in Core Java, Advanced Java, JDBC, Servlets, JSP, HTML, CSS, JavaScript, and MySQL.",
-        "Developed responsive web application components and handled backend API integrations.",
-        "Strengthened foundational knowledge of full-stack architecture, Object-Oriented Programming (OOP), and relational database management."
-      ],
-      "tech": [
-        "Core Java",
-        "Advanced Java",
-        "JDBC",
-        "Servlets",
-        "JSP",
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "MySQL",
-        "REST APIs"
+        "Cloudinary"
       ]
     }
   ],
   "projects": [
     {
       "id": 1,
-      "title": "FLEET MANAGEMENT SYSTEM",
-      "category": "Full Stack",
-      "tagline": "Comprehensive vehicle, trip, fuel, live tracking, and document management platform.",
-      "description": "Developed a full-stack Fleet Management System covering vehicle and driver management, trip planning, live tracking, fuel management, maintenance, document management, and fleet operations.",
-      "image": "/assets/project-dashboard.jpg",
-      "tags": [
-        "Node.js",
-        "React.js",
-        "Express.js",
-        "Tailwind CSS",
-        "JavaScript",
-        "MongoDB",
-        "REST APIs",
-        "Git",
-        "GitHub"
+      "title": "Fleet Management System",
+      "category": "Full Stack Web Application",
+      "subtitle": "Centralized Logistics & Real-Time Tracking Platform",
+      "description": "A comprehensive fleet management platform designed to help organizations manage vehicles, drivers, trips, fuel, maintenance, documents, expenses, and real-time vehicle tracking from a centralized dashboard.",
+      "keyFeatures": [
+        "Vehicle Management",
+        "Driver Management",
+        "Trip Management",
+        "Live Vehicle Tracking",
+        "Fuel Management",
+        "Maintenance Management",
+        "Document Management",
+        "E-Way Bill Management",
+        "Reports & Analytics",
+        "Driver & Vehicle Assignment",
+        "Dashboard Analytics"
       ],
-      "githubUrl": "https://github.com/gsaikiran2312-cell",
-      "highlights": [
-        "Vehicle & Driver Management and Trip Planning modules",
-        "Live Vehicle Tracking, Fuel Management, and Maintenance Alerts",
-        "Document Management, E-Way Bills, Reports & Fleet Operations Analytics",
-        "JWT-based authentication & role-based authorization for Admins, Managers, Drivers, and Staff",
-        "Optimized RESTful API endpoints and MongoDB data schemas for low latency retrieval"
-      ]
+      "technologies": [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Socket.IO",
+        "Cloudinary"
+      ],
+      "tags": [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Socket.IO",
+        "Cloudinary"
+      ],
+      "githubUrl": "https://github.com/gsaikiran2312-cell/Fleet-Management-System",
+      "demoUrl": "https://github.com/gsaikiran2312-cell/Fleet-Management-System",
+      "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop",
+      "problem": "Logistics companies face disorganization tracking fleet assets, driver assignments, trip logs, and fuel logs manually.",
+      "solution": "A unified, multi-module MERN dashboard providing live WebSockets tracking, automated trip dispatches, and document expiry alerts.",
+      "myContribution": "Architected Express REST API endpoints, designed MongoDB schemas, built role-scoped dashboards in React with Cloudinary document storage."
     },
     {
       "id": 2,
-      "title": "RESTAURANT MANAGEMENT SYSTEM",
-      "category": "Full Stack",
-      "tagline": "End-to-end dining management with QR ordering, Kitchen Display System (KDS), and staff workflows.",
-      "description": "Developed a full-stack Restaurant Management System for menu management, table management, QR-based ordering, order processing, billing, payments, kitchen operations, and staff workflows.",
-      "image": "/assets/project-ecommerce.jpg",
-      "tags": [
-        "Node.js",
+      "title": "Flavora Kitchen",
+      "category": "Restaurant Management System",
+      "subtitle": "Complete Dining & Kitchen Operations Platform",
+      "description": "A complete restaurant management platform designed to streamline restaurant operations from customer ordering to kitchen processing, payment, table management, and administration.",
+      "isWebMobile": true,
+      "keyFeatures": [
+        "QR-Based Table Ordering",
+        "Menu Management",
+        "Table Management",
+        "Kitchen Display System (KDS)",
+        "Waiter Dashboard",
+        "Manager Dashboard",
+        "Order Management",
+        "Coupon & Discount Management",
+        "GST Billing",
+        "Payment Management",
+        "Real-Time Order Tracking",
+        "Staff Attendance",
+        "Restaurant Analytics"
+      ],
+      "technologies": [
         "React.js",
-        "Express.js",
-        "Tailwind CSS",
-        "JavaScript",
-        "MongoDB",
-        "REST APIs",
-        "Git",
-        "GitHub"
-      ],
-      "githubUrl": "https://github.com/gsaikiran2312-cell",
-      "rolesSupported": [
-        "Administrator",
-        "Manager",
-        "Receptionist",
-        "Waiter",
-        "Chef",
-        "Customer"
-      ],
-      "highlights": [
-        "Role-Based Dashboards for Admin, Manager, Waiter, Receptionist, and Chef",
-        "Menu Management, Table Management, and QR-Based Dining & Ordering",
-        "Order Processing, Kitchen Display System (KDS), and Real-Time Order Tracking",
-        "Billing, Payments, Coupon Processing, and Table Reservations",
-        "JWT Authentication & Role-Based Access Control across Web and Mobile Waiter App integration"
-      ]
-    },
-    {
-      "id": 3,
-      "title": "EVENT MANAGEMENT SYSTEM",
-      "category": "Full Stack",
-      "tagline": "Event scheduling, attendee registration, venue coordination, and role-based operations.",
-      "description": "Developed a full-stack Event Management System for event creation, attendee registration, scheduling, venue management, and event operations.",
-      "image": "/assets/project-ai.jpg",
-      "tags": [
         "Node.js",
-        "React.js",
         "Express.js",
-        "Tailwind CSS",
-        "JavaScript",
         "MongoDB",
-        "REST APIs",
-        "Git",
-        "GitHub"
+        "Flutter",
+        "Socket.IO",
+        "Cloudinary"
       ],
-      "githubUrl": "https://github.com/gsaikiran2312-cell",
-      "rolesSupported": [
-        "Administrator",
-        "Organizer",
-        "Attendee"
+      "tags": [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Flutter",
+        "Socket.IO",
+        "Cloudinary"
       ],
-      "highlights": [
-        "Event Creation, Event Scheduling, and Status Management",
-        "Attendee Registration and Real-Time Registration Tracking",
-        "Venue Management and Event Coordination Workflows",
-        "RESTful APIs with JWT Authentication and Role-Based Authorization",
-        "Responsive React.js UI backed by Express.js & MongoDB"
-      ]
-    }
-  ],
-  "education": [
-    {
-      "id": 1,
-      "degree": "MASTER OF TECHNOLOGY – COMPUTER SCIENCE & ENGINEERING",
-      "period": "2023 – 2025",
-      "institution": "Anantha Lakshmi College of Engineering & Technology",
-      "location": "Andhra Pradesh",
-      "details": "Post-graduate specialization in Computer Science & Engineering with focus on Advanced Web Technologies and Software Engineering."
-    },
-    {
-      "id": 2,
-      "degree": "BACHELOR OF TECHNOLOGY – COMPUTER SCIENCE & ENGINEERING",
-      "period": "2018 – 2022",
-      "institution": "Malineni Lakshmiah College of Engineering & Technology",
-      "location": "Andhra Pradesh",
-      "details": "Graduate degree in Computer Science & Engineering covering core Data Structures, Database Systems, Object-Oriented Programming, and Web Development."
-    },
-    {
-      "id": 3,
-      "degree": "INTERMEDIATE – MPC",
-      "period": "2016 – 2018",
-      "institution": "Sri Chaitanya Junior College",
-      "location": "Kurnool, Andhra Pradesh",
-      "details": "Higher secondary education focusing on Mathematics, Physics, and Chemistry."
+      "githubUrl": "https://github.com/gsaikiran2312-cell/Restaurant-management-system",
+      "demoUrl": "https://github.com/gsaikiran2312-cell/Restaurant-management-system",
+      "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop",
+      "problem": "Traditional dining experiences suffer from slow ordering, miscommunicated kitchen tickets, and delayed billing.",
+      "solution": "Instant QR table dining catalog, real-time Kitchen Display System (KDS), and mobile waiter app integration for rapid order processing.",
+      "myContribution": "Developed React ordering UI, built Node.js order state machine, implemented Socket.IO live order feeds for kitchen and cashier views."
     },
     {
       "id": 4,
-      "degree": "SSC",
-      "period": "2015 – 2016",
-      "institution": "Nirmala English Residential School",
-      "location": "Andhra Pradesh",
-      "details": "Secondary School Certificate with strong academic performance in Mathematics and Science."
+      "title": "Event Management System",
+      "category": "Full Stack Web Application",
+      "subtitle": "Event Discovery & Registration Platform",
+      "description": "A full-stack event management application that enables users to discover, organize, and manage events through an intuitive web interface.",
+      "keyFeatures": [
+        "Event Creation",
+        "Event Registration",
+        "User Authentication",
+        "Event Management",
+        "Organizer Dashboard",
+        "REST API Integration",
+        "Responsive UI"
+      ],
+      "technologies": [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB"
+      ],
+      "tags": [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB"
+      ],
+      "githubUrl": "https://github.com/gsaikiran2312-cell/Event-Management-System",
+      "demoUrl": "https://github.com/gsaikiran2312-cell/Event-Management-System",
+      "image": "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop",
+      "problem": "Event hosts require a straightforward portal for attendee registration and real-time headcounts.",
+      "solution": "Clean event scheduling portal with user authentication, ticket registration workflows, and organizer status dashboards.",
+      "myContribution": "Created responsive event listing cards, built MongoDB registration controllers, integrated REST API calls."
     }
   ],
-  "certifications": [
+  "servicesData": [
     {
-      "title": "Certified Java Full Stack Developer",
-      "institution": "J Spiders, Hyderabad",
-      "period": "Certified"
+      "id": 1,
+      "title": "Full Stack Development",
+      "description": "Building complete web applications from frontend interfaces to backend APIs and databases."
+    },
+    {
+      "id": 2,
+      "title": "Frontend Development",
+      "description": "Creating responsive, modern, and reusable interfaces using React.js and modern CSS frameworks."
+    },
+    {
+      "id": 3,
+      "title": "Backend Development",
+      "description": "Developing secure and scalable REST APIs using Node.js, Express.js, Java, and Spring Boot."
+    },
+    {
+      "id": 4,
+      "title": "Database Development",
+      "description": "Designing efficient data models and working with MongoDB, MySQL, and Oracle SQL."
+    },
+    {
+      "id": 5,
+      "title": "API Integration",
+      "description": "Building and integrating REST APIs with authentication, validation, and role-based access."
+    },
+    {
+      "id": 6,
+      "title": "Real-Time Applications",
+      "description": "Implementing real-time features using WebSockets and Socket.IO for live updates and tracking."
     }
   ],
-  "certHighlights": [
-    "Contributed to enterprise-level Event Management and Car Garage Management applications.",
-    "Successfully delivered responsive full-stack modules in Agile development environments.",
-    "Experienced in React.js, Node.js, Express.js, MongoDB, JWT Authentication, REST API development, Git/GitHub, and deployment support."
+  "whyWorkWithMe": [
+    {
+      "number": "01",
+      "title": "Real-World Experience",
+      "description": "Hands-on experience building and maintaining production-oriented applications."
+    },
+    {
+      "number": "02",
+      "title": "Full Stack Expertise",
+      "description": "Comfortable working across frontend, backend, database, and API layers."
+    },
+    {
+      "number": "03",
+      "title": "Business-Focused Development",
+      "description": "Focused on understanding business requirements and converting them into practical software solutions."
+    },
+    {
+      "number": "04",
+      "title": "Problem Solving",
+      "description": "Strong interest in debugging, optimizing applications, and solving real-world technical challenges."
+    },
+    {
+      "number": "05",
+      "title": "Continuous Learning",
+      "description": "Continuously improving development skills and exploring modern tools and technologies."
+    }
   ],
-  "softSkills": [
-    "Problem Solving",
-    "Team Collaboration",
-    "Communication",
-    "Time Management",
-    "Leadership",
-    "Critical Thinking"
-  ],
-  "spokenLanguages": [
-    "Telugu",
-    "English",
-    "Hindi"
-  ],
-  "interests": [
-    "Full Stack Development",
-    "UI/UX Design",
-    "Cooking",
-    "Traveling",
-    "Emerging Technologies"
-  ]
+  "codeBannerData": {
+    "heading": "Code. Build. Improve.",
+    "description": "I enjoy building applications, experimenting with new technologies, and continuously improving my development skills."
+  }
 }

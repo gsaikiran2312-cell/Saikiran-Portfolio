@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import StatsCounter from './components/StatsCounter';
 import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
-import Education from './components/Education';
-import Certifications from './components/Certifications';
+import Services from './components/Services';
+import WhyWorkWithMe from './components/WhyWorkWithMe';
+import CodeBanner from './components/CodeBanner';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Toast from './components/Toast';
 import AdminDrawer from './components/AdminDrawer';
+import LoginModal from './components/LoginModal';
 import * as fallbackData from './data/portfolioData';
 
 const API_BASE_URL = 'http://localhost:5001/api/portfolio';
@@ -19,28 +20,54 @@ const API_BASE_URL = 'http://localhost:5001/api/portfolio';
 export default function App() {
   const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
   const [isAdminOpen, setIsAdminOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [backendConnected, setBackendConnected] = useState(false);
 
   // Dynamic Portfolio State
   const [data, setData] = useState({
     personalDetails: fallbackData.personalDetails,
-    aboutHighlights: fallbackData.aboutHighlights,
-    stats: fallbackData.stats,
+    aboutData: fallbackData.aboutData,
     skillCategories: fallbackData.skillCategories,
     workExperience: fallbackData.workExperience,
     projects: fallbackData.projects,
-    education: fallbackData.education,
-    certifications: fallbackData.certifications,
-    certHighlights: fallbackData.certHighlights,
-    softSkills: fallbackData.softSkills,
-    spokenLanguages: fallbackData.spokenLanguages,
-    interests: fallbackData.interests,
+    servicesData: fallbackData.servicesData,
+    whyWorkWithMe: fallbackData.whyWorkWithMe,
+    codeBannerData: fallbackData.codeBannerData,
   });
 
-  // Ensure dark class is removed for fixed light mode
+  // Check auth state on mount
   useEffect(() => {
     document.documentElement.classList.remove('dark');
+    const token = localStorage.getItem('adminAuthToken');
+    if (token) {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  // Listen for /login or #login in URL
+  useEffect(() => {
+    const checkRoute = () => {
+      const path = window.location.pathname.toLowerCase();
+      const hash = window.location.hash.toLowerCase();
+      if (path === '/login' || hash === '#login') {
+        if (localStorage.getItem('adminAuthToken')) {
+          setIsAuthenticated(true);
+          setIsAdminOpen(true);
+        } else {
+          setIsLoginModalOpen(true);
+        }
+      }
+    };
+
+    checkRoute();
+    window.addEventListener('popstate', checkRoute);
+    window.addEventListener('hashchange', checkRoute);
+    return () => {
+      window.removeEventListener('popstate', checkRoute);
+      window.removeEventListener('hashchange', checkRoute);
+    };
   }, []);
 
   // Fetch dynamic data from Express Backend on mount
@@ -54,7 +81,7 @@ export default function App() {
       if (res.ok) {
         const result = await res.json();
         if (result.success && result.data) {
-          setData(result.data);
+          setData((prev) => ({ ...prev, ...result.data }));
           setBackendConnected(true);
         }
       }
@@ -62,6 +89,28 @@ export default function App() {
       console.warn("Express backend offline or unavailable, using local fallback state:", err);
       setBackendConnected(false);
     }
+  };
+
+  const handleOpenAdminTrigger = () => {
+    if (isAuthenticated || localStorage.getItem('adminAuthToken')) {
+      setIsAuthenticated(true);
+      setIsAdminOpen(true);
+    } else {
+      setIsLoginModalOpen(true);
+    }
+  };
+
+  const handleLoginSuccess = () => {
+    setIsAuthenticated(true);
+    setIsAdminOpen(true);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('adminAuthToken');
+    localStorage.removeItem('adminUser');
+    setIsAuthenticated(false);
+    setIsAdminOpen(false);
+    showToast('Signed out of Admin portal.', 'success');
   };
 
   const handleSaveToBackend = async (updatedData) => {
@@ -76,7 +125,7 @@ export default function App() {
       if (res.ok) {
         const result = await res.json();
         if (result.success) {
-          setData(updatedData);
+          setData((prev) => ({ ...prev, ...updatedData }));
           showToast('Portfolio data updated and saved to Express backend!', 'success');
           setIsAdminOpen(false);
         } else {
@@ -118,9 +167,17 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-indigo-600 selection:text-white font-sans antialiased">
       {/* Toast Notification */}
       <Toast toast={toast} onClose={() => setToast({ ...toast, show: false })} />
+
+      {/* Login Modal */}
+      <LoginModal
+        isOpen={isLoginModalOpen}
+        onClose={() => setIsLoginModalOpen(false)}
+        onLoginSuccess={handleLoginSuccess}
+        onShowToast={showToast}
+      />
 
       {/* Admin Control Center Drawer */}
       <AdminDrawer
@@ -130,59 +187,47 @@ export default function App() {
         onSave={handleSaveToBackend}
         onReset={handleResetBackend}
         isSaving={isSaving}
+        onLogout={handleLogout}
       />
 
       {/* Navigation Bar */}
       <Navbar
-        personalDetails={data.personalDetails}
-        onOpenAdmin={() => setIsAdminOpen(true)}
+        personalDetails={data.personalDetails || fallbackData.personalDetails}
+        onOpenAdmin={handleOpenAdminTrigger}
         backendConnected={backendConnected}
       />
 
-      {/* Main Dynamic Sections */}
+      {/* Main Sections */}
       <main className="relative">
-        <Hero
-          personalDetails={data.personalDetails}
-          onOpenContact={() => {
-            const el = document.getElementById('contact');
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }}
-        />
+        <Hero personalDetails={data.personalDetails || fallbackData.personalDetails} />
 
-        <StatsCounter stats={data.stats} />
+        <About aboutData={data.aboutData || fallbackData.aboutData} />
 
-        <About
-          personalDetails={data.personalDetails}
-          aboutHighlights={data.aboutHighlights}
-        />
+        <Skills skillCategories={data.skillCategories || fallbackData.skillCategories} />
 
-        <Skills skillCategories={data.skillCategories} />
+        <Experience workExperience={data.workExperience || fallbackData.workExperience} />
 
-        <Experience workExperience={data.workExperience} />
+        <Projects projects={data.projects || fallbackData.projects} />
 
-        <Projects projects={data.projects} />
+        <Services servicesData={data.servicesData || fallbackData.servicesData} />
 
-        <Education education={data.education} />
+        <WhyWorkWithMe whyData={data.whyWorkWithMe || fallbackData.whyWorkWithMe} />
 
-        <Certifications
-          certifications={data.certifications}
-          certHighlights={data.certHighlights}
-          softSkills={data.softSkills}
-          spokenLanguages={data.spokenLanguages}
-          interests={data.interests}
+        <CodeBanner
+          bannerData={data.codeBannerData || fallbackData.codeBannerData}
+          personalDetails={data.personalDetails || fallbackData.personalDetails}
         />
 
         <Contact
-          personalDetails={data.personalDetails}
+          personalDetails={data.personalDetails || fallbackData.personalDetails}
           onShowToast={showToast}
         />
       </main>
 
       {/* Footer */}
-      <Footer
-        personalDetails={data.personalDetails}
-        onOpenAdmin={() => setIsAdminOpen(true)}
-      />
+      <Footer personalDetails={data.personalDetails || fallbackData.personalDetails} />
     </div>
   );
 }
+
+
