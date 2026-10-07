@@ -5,11 +5,11 @@ import { stats } from '../data/portfolioData';
 export default function StatsCounter() {
   const getIcon = (iconName) => {
     switch (iconName) {
-      case 'Clock': return <Clock className="w-6 h-6 text-indigo-400" />;
-      case 'Code2': return <Code2 className="w-6 h-6 text-purple-400" />;
-      case 'Users': return <Users className="w-6 h-6 text-pink-400" />;
-      case 'Zap': return <Zap className="w-6 h-6 text-cyan-400" />;
-      default: return <Zap className="w-6 h-6 text-indigo-400" />;
+      case 'Clock': return <Clock className="w-6 h-6 text-indigo-600" />;
+      case 'Code2': return <Code2 className="w-6 h-6 text-purple-600" />;
+      case 'Users': return <Users className="w-6 h-6 text-pink-600" />;
+      case 'Zap': return <Zap className="w-6 h-6 text-cyan-600" />;
+      default: return <Zap className="w-6 h-6 text-indigo-600" />;
     }
   };
 
@@ -20,16 +20,16 @@ export default function StatsCounter() {
           {stats.map((item) => (
             <div
               key={item.id}
-              className="glass-card p-5 rounded-2xl border border-slate-800/80 hover:border-indigo-500/40 transition-all duration-300 hover:-translate-y-1 group flex items-center gap-4"
+              className="glass-card p-5 rounded-2xl border border-slate-200 hover:border-indigo-300 transition-all duration-300 hover:-translate-y-1 group flex items-center gap-4 shadow-sm"
             >
-              <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 group-hover:scale-110 transition-transform">
+              <div className="p-3 rounded-xl bg-indigo-50 border border-indigo-100 group-hover:scale-110 transition-transform">
                 {getIcon(item.icon)}
               </div>
               <div>
-                <h4 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-indigo-300 transition-colors">
+                <h4 className="text-2xl sm:text-3xl font-extrabold text-slate-900 group-hover:text-indigo-600 transition-colors">
                   {item.value}
                 </h4>
-                <p className="text-xs sm:text-sm text-slate-400 font-medium">
+                <p className="text-xs sm:text-sm text-slate-600 font-medium">
                   {item.label}
                 </p>
               </div>

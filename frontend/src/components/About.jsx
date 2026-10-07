@@ -36,12 +36,12 @@ export default function About() {
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-indigo-400 text-xs font-mono mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-mono font-semibold mb-3">
             <User className="w-3.5 h-3.5" />
             <span>PROFESSIONAL SUMMARY</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">Sai Kiran Gandhudi</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">Sai Kiran Gandhudi</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 rounded-full mt-4" />
         </div>
@@ -50,28 +50,28 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch mb-12">
           
           {/* Left Column: Summary Card */}
-          <div className="lg:col-span-7 glass-card p-6 sm:p-8 rounded-3xl border border-slate-800/80 flex flex-col justify-between space-y-6">
+          <div className="lg:col-span-7 glass-card p-6 sm:p-8 rounded-3xl border border-slate-200 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
-              <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-indigo-400 shrink-0" />
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-indigo-600 shrink-0" />
                 <span>Full Stack & MERN Developer</span>
               </h3>
 
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+              <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
                 Full Stack Developer with <strong>1.6 years of experience</strong> in developing scalable web applications using <strong>React.js, Node.js, Express.js, JavaScript, MongoDB, HTML, CSS, and RESTful APIs</strong>.
               </p>
 
-              <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                 Experienced in building enterprise applications including <strong>Fleet Management, Restaurant Management, and Event Management systems</strong>, with expertise in role-based authentication, API development, database management, responsive UI development, and application performance optimization.
               </p>
 
-              <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                 Strong understanding of full-stack development, Agile methodologies, Git/GitHub, and end-to-end application development.
               </p>
             </div>
 
             {/* Resume Download CTA */}
-            <div className="pt-4 border-t border-slate-800/80">
+            <div className="pt-4 border-t border-slate-200">
               <a
                 href="#contact"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold text-xs shadow-md transition-all"
@@ -83,24 +83,24 @@ export default function About() {
           </div>
 
           {/* Right Column: Key Highlights Pills Box */}
-          <div className="lg:col-span-5 glass-card p-6 sm:p-8 rounded-3xl border border-slate-800/80 flex flex-col justify-between">
+          <div className="lg:col-span-5 glass-card p-6 sm:p-8 rounded-3xl border border-slate-200 flex flex-col justify-between">
             <div>
-              <h4 className="text-sm font-bold text-slate-200 uppercase tracking-wider font-mono mb-4">
+              <h4 className="text-sm font-bold text-slate-800 uppercase tracking-wider font-mono mb-4">
                 Core Professional Highlights
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
                 {aboutHighlights.map((highlight, idx) => (
-                  <div key={idx} className="flex items-center gap-3 p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-200 text-xs sm:text-sm font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <div key={idx} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-semibold">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>{highlight}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-800 text-xs text-slate-400 font-mono flex items-center justify-between">
+            <div className="mt-6 pt-4 border-t border-slate-200 text-xs text-slate-500 font-mono flex items-center justify-between font-medium">
               <span>Location: Andhra Pradesh, India</span>
-              <span className="text-indigo-400">Agile Mindset</span>
+              <span className="text-indigo-600">Agile Mindset</span>
             </div>
           </div>
 
@@ -113,15 +113,15 @@ export default function About() {
             return (
               <div
                 key={index}
-                className="glass-card p-5 rounded-2xl border border-slate-800/80 hover:border-slate-700 transition-all duration-300 hover:-translate-y-1"
+                className="glass-card p-5 rounded-2xl border border-slate-200 hover:border-indigo-300 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className={`w-10 h-10 rounded-xl border flex items-center justify-center mb-3 ${item.color}`}>
                   <IconComp className="w-5 h-5" />
                 </div>
-                <h4 className="text-base font-bold text-white mb-1">
+                <h4 className="text-base font-bold text-slate-900 mb-1">
                   {item.title}
                 </h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
                   {item.description}
                 </p>
               </div>

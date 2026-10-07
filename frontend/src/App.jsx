@@ -17,7 +17,6 @@ import * as fallbackData from './data/portfolioData';
 const API_BASE_URL = 'http://localhost:5001/api/portfolio';
 
 export default function App() {
-  const [isDark, setIsDark] = useState(true);
   const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
@@ -38,6 +37,11 @@ export default function App() {
     spokenLanguages: fallbackData.spokenLanguages,
     interests: fallbackData.interests,
   });
+
+  // Ensure dark class is removed for fixed light mode
+  useEffect(() => {
+    document.documentElement.classList.remove('dark');
+  }, []);
 
   // Fetch dynamic data from Express Backend on mount
   useEffect(() => {
@@ -106,18 +110,6 @@ export default function App() {
     }
   };
 
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDark]);
-
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-  };
-
   const showToast = (message, type = 'success') => {
     setToast({ show: true, message, type });
     setTimeout(() => {
@@ -126,9 +118,7 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      isDark ? 'bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-900'
-    }`}>
+    <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-indigo-500 selection:text-white">
       {/* Toast Notification */}
       <Toast toast={toast} onClose={() => setToast({ ...toast, show: false })} />
 
@@ -144,8 +134,6 @@ export default function App() {
 
       {/* Navigation Bar */}
       <Navbar
-        isDark={isDark}
-        toggleTheme={toggleTheme}
         personalDetails={data.personalDetails}
         onOpenAdmin={() => setIsAdminOpen(true)}
         backendConnected={backendConnected}
