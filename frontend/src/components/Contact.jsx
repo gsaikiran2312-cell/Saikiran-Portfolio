@@ -50,14 +50,14 @@ export default function Contact({ onShowToast }) {
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-indigo-400 text-xs font-mono mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-mono font-semibold mb-3">
             <MessageSquare className="w-3.5 h-3.5" />
             <span>CONTACT & RECRUITER INQUIRIES</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">Touch</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">Touch</span>
           </h2>
-          <p className="text-sm text-slate-400 max-w-xl mt-3">
+          <p className="text-sm text-slate-600 max-w-xl mt-3 font-normal">
             Interested in hiring or collaborating? Send a message directly or reach out via email, phone, or LinkedIn.
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 rounded-full mt-4" />
@@ -68,28 +68,28 @@ export default function Contact({ onShowToast }) {
           {/* Left Column: Direct Contact Info */}
           <div className="lg:col-span-5 space-y-6">
             
-            <div className="glass-card p-6 sm:p-8 rounded-3xl border border-slate-800/80 space-y-6">
-              <h3 className="text-xl font-bold text-white flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-indigo-400" />
+            <div className="glass-card p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+              <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-indigo-600" />
                 <span>Contact Channels</span>
               </h3>
 
               {/* Email Card */}
-              <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-900/90 border border-slate-800/80 group">
+              <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-50 border border-slate-200 group">
                 <div className="flex items-center gap-3.5">
-                  <div className="p-3 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                  <div className="p-3 rounded-xl bg-indigo-50 text-indigo-600 border border-indigo-200">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] text-slate-500 uppercase tracking-wider font-mono">Email Address</span>
-                    <p className="text-xs sm:text-sm font-semibold text-white group-hover:text-indigo-300 transition-colors">
+                    <span className="text-[10px] text-slate-500 uppercase tracking-wider font-mono font-medium">Email Address</span>
+                    <p className="text-xs sm:text-sm font-semibold text-slate-900 group-hover:text-indigo-600 transition-colors">
                       {personalDetails.email}
                     </p>
                   </div>
                 </div>
                 <button
                   onClick={handleCopyEmail}
-                  className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors"
+                  className="p-2 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-slate-600 hover:text-slate-900 transition-colors shadow-xs"
                   title="Copy Email"
                 >
                   <Copy className="w-4 h-4" />
@@ -97,21 +97,21 @@ export default function Contact({ onShowToast }) {
               </div>
 
               {/* Phone Card */}
-              <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-900/90 border border-slate-800/80 group">
+              <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-50 border border-slate-200 group">
                 <div className="flex items-center gap-3.5">
-                  <div className="p-3 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                  <div className="p-3 rounded-xl bg-purple-50 text-purple-600 border border-purple-200">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] text-slate-500 uppercase tracking-wider font-mono">Phone Direct</span>
-                    <p className="text-xs sm:text-sm font-semibold text-white">
+                    <span className="text-[10px] text-slate-500 uppercase tracking-wider font-mono font-medium">Phone Direct</span>
+                    <p className="text-xs sm:text-sm font-semibold text-slate-900">
                       {personalDetails.phone}
                     </p>
                   </div>
                 </div>
                 <button
                   onClick={handleCopyPhone}
-                  className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors"
+                  className="p-2 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-slate-600 hover:text-slate-900 transition-colors shadow-xs"
                   title="Copy Phone"
                 >
                   <Copy className="w-4 h-4" />
@@ -119,46 +119,46 @@ export default function Contact({ onShowToast }) {
               </div>
 
               {/* Location Card */}
-              <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-slate-900/90 border border-slate-800/80">
-                <div className="p-3 rounded-xl bg-pink-500/10 text-pink-400 border border-pink-500/20">
+              <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                <div className="p-3 rounded-xl bg-pink-50 text-pink-600 border border-pink-200">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] text-slate-500 uppercase tracking-wider font-mono">Location</span>
-                  <p className="text-xs sm:text-sm font-semibold text-white">
+                  <span className="text-[10px] text-slate-500 uppercase tracking-wider font-mono font-medium">Location</span>
+                  <p className="text-xs sm:text-sm font-semibold text-slate-900">
                     {personalDetails.location}
                   </p>
                 </div>
               </div>
 
               {/* Professional Profiles */}
-              <div className="pt-4 border-t border-slate-800 space-y-3">
-                <span className="text-xs text-slate-400 uppercase font-mono">Professional Profiles:</span>
+              <div className="pt-4 border-t border-slate-200 space-y-3">
+                <span className="text-xs text-slate-500 uppercase font-mono font-medium">Professional Profiles:</span>
                 <div className="grid grid-cols-2 gap-3">
                   <a
                     href={personalDetails.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 text-xs font-semibold text-slate-300 hover:text-white transition-colors"
+                    className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 border border-slate-200 hover:border-indigo-300 text-xs font-semibold text-slate-800 hover:text-indigo-700 transition-colors"
                   >
-                    <GithubIcon className="w-4 h-4 text-indigo-400" />
+                    <GithubIcon className="w-4 h-4 text-indigo-600" />
                     <span>GitHub Profile</span>
                   </a>
                   <a
                     href={personalDetails.linkedin}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 text-xs font-semibold text-slate-300 hover:text-white transition-colors"
+                    className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 border border-slate-200 hover:border-indigo-300 text-xs font-semibold text-slate-800 hover:text-indigo-700 transition-colors"
                   >
-                    <LinkedinIcon className="w-4 h-4 text-purple-400" />
+                    <LinkedinIcon className="w-4 h-4 text-purple-600" />
                     <span>LinkedIn Profile</span>
                   </a>
                 </div>
               </div>
 
               {/* Response Badge */}
-              <div className="p-3.5 rounded-xl bg-indigo-950/40 border border-indigo-500/30 flex items-center gap-2.5 text-xs text-indigo-300">
-                <Clock className="w-4 h-4 text-indigo-400 shrink-0" />
+              <div className="p-3.5 rounded-xl bg-indigo-50 border border-indigo-200 flex items-center gap-2.5 text-xs text-indigo-800 font-medium">
+                <Clock className="w-4 h-4 text-indigo-600 shrink-0" />
                 <span>Quick response time for career and project opportunities.</span>
               </div>
 
@@ -168,12 +168,12 @@ export default function Contact({ onShowToast }) {
 
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-7">
-            <form onSubmit={handleSubmit} className="glass-card p-6 sm:p-8 rounded-3xl border border-slate-800/80 space-y-5 shadow-2xl">
+            <form onSubmit={handleSubmit} className="glass-card p-6 sm:p-8 rounded-3xl border border-slate-200 space-y-5 shadow-sm">
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-slate-300 font-mono">
-                    YOUR NAME <span className="text-rose-400">*</span>
+                  <label className="text-xs font-semibold text-slate-700 font-mono">
+                    YOUR NAME <span className="text-rose-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -181,13 +181,13 @@ export default function Contact({ onShowToast }) {
                     placeholder="Enter your name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-indigo-500 transition-colors shadow-xs"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-slate-300 font-mono">
-                    EMAIL ADDRESS <span className="text-rose-400">*</span>
+                  <label className="text-xs font-semibold text-slate-700 font-mono">
+                    EMAIL ADDRESS <span className="text-rose-500">*</span>
                   </label>
                   <input
                     type="email"
@@ -195,19 +195,19 @@ export default function Contact({ onShowToast }) {
                     placeholder="Enter your email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-indigo-500 transition-colors shadow-xs"
                   />
                 </div>
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-slate-300 font-mono">
+                <label className="text-xs font-semibold text-slate-700 font-mono">
                   SUBJECT / REASON
                 </label>
                 <select
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-indigo-500 transition-colors shadow-xs"
                 >
                   <option value="Full Stack Role Opportunity">Full-Time / Contract Role Opportunity</option>
                   <option value="Web App Project">New Web Application Project</option>
@@ -216,8 +216,8 @@ export default function Contact({ onShowToast }) {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-slate-300 font-mono">
-                  MESSAGE <span className="text-rose-400">*</span>
+                <label className="text-xs font-semibold text-slate-700 font-mono">
+                  MESSAGE <span className="text-rose-500">*</span>
                 </label>
                 <textarea
                   rows="5"
@@ -225,14 +225,14 @@ export default function Contact({ onShowToast }) {
                   placeholder="Share details about the role, project, or opportunity..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-indigo-500 transition-colors resize-none shadow-xs"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:to-pink-500 text-white font-bold text-sm shadow-xl shadow-indigo-600/30 flex items-center justify-center gap-2 transition-all duration-200 disabled:opacity-50"
+                className="w-full py-4 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:to-pink-500 text-white font-bold text-sm shadow-md shadow-indigo-600/25 flex items-center justify-center gap-2 transition-all duration-200 disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <span>Sending Message...</span>
