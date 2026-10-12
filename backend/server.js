@@ -1,9 +1,8 @@
 import app from './app.js';
 import { config } from './config/env.js';
 
-const PORT = config.port;
+const PORT = process.env.PORT || config.port || 5000;
 
-app.listen(PORT, () => {
-  console.log(`🚀 Portfolio running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Portfolio API running on port ${PORT}`);
 });
-
