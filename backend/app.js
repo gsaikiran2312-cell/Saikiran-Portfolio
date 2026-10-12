@@ -14,6 +14,13 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', serverTime: new Date().toISOString() });
 });
 
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Saikiran Portfolio API is running',
+  });
+});
+
 // API Routes
 app.use('/api/portfolio', portfolioRoutes);
 app.use('/api/upload', uploadRoutes);
