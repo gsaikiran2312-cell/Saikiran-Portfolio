@@ -25,6 +25,32 @@ export default function App() {
   const [isSaving, setIsSaving] = useState(false);
   const [backendConnected, setBackendConnected] = useState(false);
 
+  // Multi-page View State (initialized from URL hash)
+  const [currentPage, setCurrentPage] = useState(() => {
+    const hash = window.location.hash.replace('#', '').toLowerCase();
+    const valid = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
+    return valid.includes(hash) ? hash : 'home';
+  });
+
+  const handleNavigate = (page) => {
+    setCurrentPage(page);
+    window.location.hash = page;
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  };
+
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.replace('#', '').toLowerCase();
+      const valid = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
+      if (valid.includes(hash)) {
+        setCurrentPage(hash);
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      }
+    };
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
+
   // Dynamic Portfolio State
   const [data, setData] = useState({
     personalDetails: fallbackData.personalDetails,
@@ -167,7 +193,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-indigo-600 selection:text-white font-sans antialiased">
+    <div
+      style={{ fontFamily: '"Times New Roman", Times, serif' }}
+      className="min-h-screen bg-slate-50 text-slate-900 selection:bg-indigo-600 selection:text-white font-serif antialiased flex flex-col"
+    >
       {/* Toast Notification */}
       <Toast toast={toast} onClose={() => setToast({ ...toast, show: false })} />
 
@@ -193,39 +222,69 @@ export default function App() {
       {/* Navigation Bar */}
       <Navbar
         personalDetails={data.personalDetails || fallbackData.personalDetails}
+        currentPage={currentPage}
+        onNavigate={handleNavigate}
         onOpenAdmin={handleOpenAdminTrigger}
         backendConnected={backendConnected}
       />
 
-      {/* Main Sections */}
-      <main className="relative">
-        <Hero personalDetails={data.personalDetails || fallbackData.personalDetails} />
+      {/* Main Multi-Page Views */}
+      <main className="relative flex-1">
+        {currentPage === 'home' && (
+          <div className="animate-in fade-in duration-200">
+            <Hero
+              personalDetails={data.personalDetails || fallbackData.personalDetails}
+              onNavigate={handleNavigate}
+            />
+            <Services servicesData={data.servicesData || fallbackData.servicesData} />
+            <WhyWorkWithMe whyData={data.whyWorkWithMe || fallbackData.whyWorkWithMe} />
+            <CodeBanner
+              bannerData={data.codeBannerData || fallbackData.codeBannerData}
+              personalDetails={data.personalDetails || fallbackData.personalDetails}
+            />
+          </div>
+        )}
 
-        <About aboutData={data.aboutData || fallbackData.aboutData} />
+        {currentPage === 'about' && (
+          <div className="pt-24 sm:pt-28 min-h-[calc(100vh-220px)] animate-in fade-in duration-200">
+            <About aboutData={data.aboutData || fallbackData.aboutData} />
+            <WhyWorkWithMe whyData={data.whyWorkWithMe || fallbackData.whyWorkWithMe} />
+          </div>
+        )}
 
-        <Skills skillCategories={data.skillCategories || fallbackData.skillCategories} />
+        {currentPage === 'skills' && (
+          <div className="pt-24 sm:pt-28 min-h-[calc(100vh-220px)] animate-in fade-in duration-200">
+            <Skills skillCategories={data.skillCategories || fallbackData.skillCategories} />
+          </div>
+        )}
 
-        <Experience workExperience={data.workExperience || fallbackData.workExperience} />
+        {currentPage === 'experience' && (
+          <div className="pt-24 sm:pt-28 min-h-[calc(100vh-220px)] animate-in fade-in duration-200">
+            <Experience workExperience={data.workExperience || fallbackData.workExperience} />
+          </div>
+        )}
 
-        <Projects projects={data.projects || fallbackData.projects} />
+        {currentPage === 'projects' && (
+          <div className="pt-24 sm:pt-28 min-h-[calc(100vh-220px)] animate-in fade-in duration-200">
+            <Projects projects={data.projects || fallbackData.projects} />
+          </div>
+        )}
 
-        <Services servicesData={data.servicesData || fallbackData.servicesData} />
-
-        <WhyWorkWithMe whyData={data.whyWorkWithMe || fallbackData.whyWorkWithMe} />
-
-        <CodeBanner
-          bannerData={data.codeBannerData || fallbackData.codeBannerData}
-          personalDetails={data.personalDetails || fallbackData.personalDetails}
-        />
-
-        <Contact
-          personalDetails={data.personalDetails || fallbackData.personalDetails}
-          onShowToast={showToast}
-        />
+        {currentPage === 'contact' && (
+          <div className="pt-24 sm:pt-28 min-h-[calc(100vh-220px)] animate-in fade-in duration-200">
+            <Contact
+              personalDetails={data.personalDetails || fallbackData.personalDetails}
+              onShowToast={showToast}
+            />
+          </div>
+        )}
       </main>
 
       {/* Footer */}
-      <Footer personalDetails={data.personalDetails || fallbackData.personalDetails} />
+      <Footer
+        personalDetails={data.personalDetails || fallbackData.personalDetails}
+        onNavigate={handleNavigate}
+      />
     </div>
   );
 }

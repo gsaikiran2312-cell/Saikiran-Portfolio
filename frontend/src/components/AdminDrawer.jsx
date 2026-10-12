@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
-import { X, Save, RefreshCw, Database, Plus, Trash2, Upload, Loader2, LogOut, ShieldCheck } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, Save, RefreshCw, Database, Plus, Trash2, Upload, Loader2, LogOut, ShieldCheck, Globe, ExternalLink } from 'lucide-react';
 
 export default function AdminDrawer({ isOpen, onClose, data, onSave, onReset, isSaving, onLogout }) {
   const [activeTab, setActiveTab] = useState('personal');
   const [formData, setFormData] = useState(data);
   const [uploadingIndex, setUploadingIndex] = useState(null);
+
+  useEffect(() => {
+    if (data) {
+      setFormData(data);
+    }
+  }, [data, isOpen]);
 
   if (!isOpen) return null;
 
@@ -236,24 +242,89 @@ export default function AdminDrawer({ isOpen, onClose, data, onSave, onReset, is
                 </div>
               </div>
 
-              <div className="space-y-1">
+              {/* Hero Portrait Image (Main Home Page Card) */}
+              <div className="p-4 rounded-2xl bg-indigo-50/60 border border-indigo-200/80 space-y-3">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <label className="text-xs font-bold font-mono text-indigo-900 flex items-center gap-1.5">
+                      <span>Hero Portrait Image (Featured Homepage Image)</span>
+                    </label>
+                    <p className="text-[11px] text-slate-500 font-sans mt-0.5">
+                      The large developer portrait card displayed on the right side of the Hero section.
+                    </p>
+                  </div>
+                  {uploadingIndex === 'heroImage' && (
+                    <span className="text-indigo-600 flex items-center gap-1 text-xs font-semibold">
+                      <Loader2 className="w-3.5 h-3.5 animate-spin" /> Uploading...
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                  {/* Thumbnail Preview */}
+                  <div className="w-16 h-20 rounded-xl overflow-hidden border-2 border-indigo-200 bg-slate-900 shrink-0 shadow-xs">
+                    <img
+                      src={formData.personalDetails?.heroImage || '/hero-profile.jpg'}
+                      alt="Hero Portrait Preview"
+                      className="w-full h-full object-cover object-top"
+                      onError={(e) => {
+                        e.target.src = '/hero-profile.jpg';
+                      }}
+                    />
+                  </div>
+
+                  {/* Input & Upload */}
+                  <div className="flex-1 w-full flex items-center gap-2">
+                    <input
+                      type="text"
+                      placeholder="Image URL (or click Upload to choose from device)"
+                      value={formData.personalDetails?.heroImage || ''}
+                      onChange={(e) => handlePersonalChange('heroImage', e.target.value)}
+                      className="flex-1 px-3.5 py-2 rounded-xl bg-white border border-indigo-200 text-slate-900 text-xs font-mono focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                    />
+                    <label className="cursor-pointer inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold shadow-xs transition-colors shrink-0">
+                      <Upload className="w-3.5 h-3.5" />
+                      <span>Upload New Image</span>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={(e) => handleImageUpload(e.target.files[0], 'heroImage')}
+                      />
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              {/* Header & Footer Avatar Icon */}
+              <div className="space-y-1 pt-1">
                 <label className="text-[11px] font-mono text-slate-700 font-semibold flex items-center justify-between">
-                  <span>Profile Image (Cloudinary)</span>
+                  <span>Small Brand Avatar Icon (Navbar & Footer)</span>
                   {uploadingIndex === 'avatar' && (
                     <span className="text-indigo-600 flex items-center gap-1">
-                      <Loader2 className="w-3 h-3 animate-spin" /> Uploading to Cloudinary...
+                      <Loader2 className="w-3 h-3 animate-spin" /> Uploading...
                     </span>
                   )}
                 </label>
                 <div className="flex items-center gap-2">
+                  <div className="w-9 h-9 rounded-full overflow-hidden border border-slate-300 bg-slate-100 shrink-0">
+                    <img
+                      src={formData.personalDetails?.avatar || '/avatar.jpg'}
+                      alt="Avatar Preview"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.src = '/avatar.jpg';
+                      }}
+                    />
+                  </div>
                   <input
                     type="text"
-                    placeholder="Cloudinary Image URL"
+                    placeholder="Small Avatar URL"
                     value={formData.personalDetails?.avatar || ''}
                     onChange={(e) => handlePersonalChange('avatar', e.target.value)}
                     className="flex-1 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs"
                   />
-                  <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 text-indigo-700 text-xs font-semibold transition-colors">
+                  <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 text-xs font-semibold transition-colors">
                     <Upload className="w-3.5 h-3.5" />
                     <span>Upload</span>
                     <input
@@ -334,6 +405,18 @@ export default function AdminDrawer({ isOpen, onClose, data, onSave, onReset, is
                     className="w-full px-3 py-2 rounded-xl bg-white border border-slate-200 text-slate-900 text-xs resize-none"
                   />
 
+                  <input
+                    type="text"
+                    placeholder="Subtitle (e.g. Centralized Logistics & Real-Time Tracking Platform)"
+                    value={proj.subtitle || ''}
+                    onChange={(e) => {
+                      const updated = [...(formData.projects || [])];
+                      updated[idx].subtitle = e.target.value;
+                      setFormData({ ...formData, projects: updated });
+                    }}
+                    className="w-full px-3 py-2 rounded-xl bg-white border border-slate-200 text-slate-900 text-xs"
+                  />
+
                   {/* Cloudinary Upload for Project */}
                   <div className="space-y-1">
                     <label className="text-[11px] font-mono text-slate-600 font-semibold flex items-center justify-between">
@@ -367,6 +450,59 @@ export default function AdminDrawer({ isOpen, onClose, data, onSave, onReset, is
                         />
                       </label>
                     </div>
+                  </div>
+
+                  {/* Dedicated Live Demo Link Input Field */}
+                  <div className="p-3 rounded-xl bg-indigo-50/50 border border-indigo-200/80 space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <label className="text-xs font-bold font-mono text-indigo-900 flex items-center gap-1.5">
+                        <Globe className="w-3.5 h-3.5 text-indigo-600" />
+                        <span>Live Demo Link</span>
+                      </label>
+                      {proj.demoUrl && (
+                        <a
+                          href={proj.demoUrl.startsWith('http') ? proj.demoUrl : `https://${proj.demoUrl}`}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-[11px] font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1 transition-colors hover:underline"
+                        >
+                          <ExternalLink className="w-3 h-3" />
+                          <span>Test Link</span>
+                        </a>
+                      )}
+                    </div>
+                    <input
+                      type="url"
+                      placeholder="e.g. https://your-live-demo.vercel.app"
+                      value={proj.demoUrl || proj.liveDemo || ''}
+                      onChange={(e) => {
+                        const updated = [...(formData.projects || [])];
+                        updated[idx].demoUrl = e.target.value;
+                        setFormData({ ...formData, projects: updated });
+                      }}
+                      className="w-full px-3 py-2 rounded-xl bg-white border border-indigo-200 text-slate-900 text-xs font-mono focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all shadow-2xs"
+                    />
+                    <p className="text-[10px] text-slate-500 font-mono">
+                      Users clicking "Live Demo" on your portfolio will be redirected to this link.
+                    </p>
+                  </div>
+
+                  {/* GitHub Repository URL */}
+                  <div className="space-y-1">
+                    <label className="text-[11px] font-mono text-slate-600 font-semibold block">
+                      GitHub Repository URL
+                    </label>
+                    <input
+                      type="url"
+                      placeholder="https://github.com/username/project"
+                      value={proj.githubUrl || proj.github || ''}
+                      onChange={(e) => {
+                        const updated = [...(formData.projects || [])];
+                        updated[idx].githubUrl = e.target.value;
+                        setFormData({ ...formData, projects: updated });
+                      }}
+                      className="w-full px-3 py-2 rounded-xl bg-white border border-slate-200 text-slate-900 text-xs focus:ring-2 focus:ring-slate-500/20 focus:border-slate-500"
+                    />
                   </div>
                 </div>
               ))}

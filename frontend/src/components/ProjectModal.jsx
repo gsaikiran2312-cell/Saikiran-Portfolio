@@ -8,6 +8,24 @@ export default function ProjectModal({ project, onClose }) {
   const keyFeatures = project.keyFeatures || project.highlights || [];
   const technologies = project.technologies || project.tags || [];
 
+  // Support all common property variations for demo and github URLs
+  const rawDemoUrl = project.demoUrl || project.liveDemo || project.liveUrl || project.demo || project.link || project.previewUrl || '';
+  const rawGithubUrl = project.githubUrl || project.github || project.repoUrl || project.repo || '';
+
+  // Ensure external URLs have https:// protocol so they do not open as broken relative URLs
+  const formatUrl = (url) => {
+    if (!url) return '';
+    const trimmed = String(url).trim();
+    if (!trimmed || trimmed === '#' || trimmed.toLowerCase() === 'javascript:void(0)') return '';
+    if (/^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//i.test(trimmed)) {
+      return trimmed;
+    }
+    return `https://${trimmed}`;
+  };
+
+  const demoUrl = formatUrl(rawDemoUrl);
+  const githubUrl = formatUrl(rawGithubUrl);
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-200"
@@ -139,11 +157,12 @@ export default function ProjectModal({ project, onClose }) {
 
           {/* Action Links */}
           <div className="pt-6 border-t border-slate-200 flex flex-wrap items-center justify-end gap-3">
-            {project.githubUrl && (
+            {githubUrl && (
               <a
-                href={project.githubUrl}
+                href={githubUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs shadow-xs transition-colors"
               >
                 <GithubIcon className="w-4 h-4" />
@@ -151,12 +170,13 @@ export default function ProjectModal({ project, onClose }) {
               </a>
             )}
 
-            {project.demoUrl && (
+            {demoUrl && (
               <a
-                href={project.demoUrl}
+                href={demoUrl}
                 target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs shadow-xs transition-colors"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-semibold text-xs shadow-md shadow-indigo-600/30 transition-all cursor-pointer"
               >
                 <ExternalLink className="w-4 h-4" />
                 <span>Live Demo</span>

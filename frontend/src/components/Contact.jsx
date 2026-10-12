@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mail, MessageSquare, Copy, Download, ExternalLink } from 'lucide-react';
 import { personalDetails as defaultDetails } from '../data/portfolioData';
-import { GithubIcon, LinkedinIcon } from './SocialIcons';
+import { GithubIcon, LinkedinIcon, InstagramIcon, WhatsappIcon } from './SocialIcons';
 
 export default function Contact({ personalDetails = defaultDetails, onShowToast }) {
   const handleCopyEmail = () => {
@@ -70,16 +70,16 @@ export default function Contact({ personalDetails = defaultDetails, onShowToast 
               <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4">
                 <ExternalLink className="w-6 h-6" />
               </div>
-              <span className="text-[10px] text-slate-400 font-mono uppercase font-bold tracking-wider">Professional Networks</span>
+              <span className="text-[10px] text-slate-400 font-mono uppercase font-bold tracking-wider">Connect & Social</span>
               <h3 className="text-base sm:text-lg font-bold text-slate-900 mt-1 mb-2">
-                GitHub & LinkedIn
+                Social Profiles & Chat
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed mb-6">
-                Explore my repositories, code commits, and professional network updates.
+                Connect with me on LinkedIn, GitHub, Instagram, or send a direct WhatsApp message.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 pt-4 border-t border-slate-100">
+            <div className="grid grid-cols-2 gap-2.5 pt-4 border-t border-slate-100">
               <a
                 href={personalDetails.github}
                 target="_blank"
@@ -97,6 +97,24 @@ export default function Contact({ personalDetails = defaultDetails, onShowToast 
               >
                 <LinkedinIcon className="w-4 h-4 text-indigo-600" />
                 <span>LinkedIn</span>
+              </a>
+              <a
+                href={personalDetails.instagram || 'https://instagram.com'}
+                target="_blank"
+                rel="noreferrer"
+                className="py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-rose-50 border border-slate-200 hover:border-rose-200 text-slate-800 hover:text-rose-600 text-xs font-semibold flex items-center justify-center gap-2 transition-colors"
+              >
+                <InstagramIcon className="w-4 h-4 text-rose-500" />
+                <span>Instagram</span>
+              </a>
+              <a
+                href={personalDetails.whatsapp || 'https://wa.me/916302241083'}
+                target="_blank"
+                rel="noreferrer"
+                className="py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-emerald-50 border border-slate-200 hover:border-emerald-200 text-slate-800 hover:text-emerald-600 text-xs font-semibold flex items-center justify-center gap-2 transition-colors"
+              >
+                <WhatsappIcon className="w-4 h-4 text-emerald-500" />
+                <span>WhatsApp</span>
               </a>
             </div>
           </div>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Mail, ArrowUp } from 'lucide-react';
 import { personalDetails as defaultDetails } from '../data/portfolioData';
-import { GithubIcon, LinkedinIcon } from './SocialIcons';
+import { GithubIcon, LinkedinIcon, InstagramIcon, WhatsappIcon } from './SocialIcons';
 
-export default function Footer({ personalDetails = defaultDetails }) {
+export default function Footer({ personalDetails = defaultDetails, onNavigate }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -15,14 +15,17 @@ export default function Footer({ personalDetails = defaultDetails }) {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-100">
           
           {/* Left Info */}
-          <div className="flex items-center gap-3">
+          <div
+            onClick={() => onNavigate && onNavigate('home')}
+            className="flex items-center gap-3 cursor-pointer group"
+          >
             <img
               src="/avatar.jpg"
               alt="Gandhudi Sai Kiran Icon"
-              className="w-10 h-10 rounded-full object-cover border-2 border-indigo-600 shadow-sm shrink-0"
+              className="w-10 h-10 rounded-full object-cover border-2 border-indigo-600 shadow-sm shrink-0 group-hover:scale-105 transition-transform"
             />
             <div className="text-left space-y-0.5">
-              <h3 className="text-base font-extrabold text-slate-900 tracking-tight">
+              <h3 className="text-base font-extrabold text-slate-900 tracking-tight group-hover:text-indigo-600 transition-colors">
                 {personalDetails.name || "GANDHUDI SAI KIRAN"}
               </h3>
               <p className="text-xs font-semibold text-indigo-600">
@@ -36,7 +39,7 @@ export default function Footer({ personalDetails = defaultDetails }) {
 
 
           {/* Social Icons */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
             <a
               href={personalDetails.github}
               target="_blank"
@@ -55,6 +58,26 @@ export default function Footer({ personalDetails = defaultDetails }) {
               title="LinkedIn"
             >
               <LinkedinIcon className="w-4 h-4" />
+            </a>
+
+            <a
+              href={personalDetails.instagram || 'https://instagram.com'}
+              target="_blank"
+              rel="noreferrer"
+              className="p-2.5 rounded-xl bg-slate-50 hover:bg-rose-50 border border-slate-200 hover:border-rose-200 text-slate-700 hover:text-rose-600 transition-colors"
+              title="Instagram"
+            >
+              <InstagramIcon className="w-4 h-4" />
+            </a>
+
+            <a
+              href={personalDetails.whatsapp || 'https://wa.me/916302241083'}
+              target="_blank"
+              rel="noreferrer"
+              className="p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 hover:border-emerald-200 text-slate-700 hover:text-emerald-600 transition-colors"
+              title="WhatsApp"
+            >
+              <WhatsappIcon className="w-4 h-4" />
             </a>
 
             <a
@@ -77,10 +100,6 @@ export default function Footer({ personalDetails = defaultDetails }) {
 
         </div>
 
-        {/* Copyright */}
-        <div className="pt-6 text-center text-xs text-slate-500 font-mono">
-          © 2026 Gandhudi Sai Kiran. All rights reserved.
-        </div>
 
       </div>
     </footer>

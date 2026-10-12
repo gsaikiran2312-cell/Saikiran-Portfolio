@@ -17,7 +17,8 @@
       "Spring Boot"
     ],
     "location": "Andhra Pradesh, India",
-    "avatar": "/assets/avatar.jpg",
+    "avatar": "/avatar.jpg",
+    "heroImage": "https://res.cloudinary.com/dgi3amv5d/image/upload/v1791797939/portfolio/lveltofhei5ucgdsvkn8.jpg",
     "email": "gsaikiran2312@gmail.com",
     "phone": "+91 6302241083",
     "github": "https://github.com/gsaikiran2312-cell",
@@ -85,9 +86,7 @@
       "title": "Database",
       "icon": "Database",
       "skills": [
-        "MongoDB",
-        "MySQL",
-        "Oracle SQL"
+        "MongoDB"
       ]
     },
     {
@@ -175,7 +174,7 @@
         "Cloudinary"
       ],
       "githubUrl": "https://github.com/gsaikiran2312-cell/Fleet-Management-System",
-      "demoUrl": "https://github.com/gsaikiran2312-cell/Fleet-Management-System",
+      "demoUrl": "fleet.speshway.site",
       "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop",
       "problem": "Logistics companies face disorganization tracking fleet assets, driver assignments, trip logs, and fuel logs manually.",
       "solution": "A unified, multi-module MERN dashboard providing live WebSockets tracking, automated trip dispatches, and document expiry alerts.",
@@ -183,8 +182,8 @@
     },
     {
       "id": 2,
-      "title": "Flavora Kitchen",
-      "category": "Restaurant Management System",
+      "title": "Restaurant Management System",
+      "category": "Full Stack Web Application",
       "subtitle": "Complete Dining & Kitchen Operations Platform",
       "description": "A complete restaurant management platform designed to streamline restaurant operations from customer ordering to kitchen processing, payment, table management, and administration.",
       "isWebMobile": true,
@@ -222,7 +221,7 @@
         "Cloudinary"
       ],
       "githubUrl": "https://github.com/gsaikiran2312-cell/Restaurant-management-system",
-      "demoUrl": "https://github.com/gsaikiran2312-cell/Restaurant-management-system",
+      "demoUrl": "restaurant.speshway.site",
       "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop",
       "problem": "Traditional dining experiences suffer from slow ordering, miscommunicated kitchen tickets, and delayed billing.",
       "solution": "Instant QR table dining catalog, real-time Kitchen Display System (KDS), and mobile waiter app integration for rapid order processing.",
@@ -282,7 +281,7 @@
     {
       "id": 4,
       "title": "Database Development",
-      "description": "Designing efficient data models and working with MongoDB, MySQL, and Oracle SQL."
+      "description": "Designing efficient data models and working with MongoDB."
     },
     {
       "id": 5,

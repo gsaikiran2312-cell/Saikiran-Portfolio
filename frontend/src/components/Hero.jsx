@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowRight, Download } from 'lucide-react';
 import { personalDetails as defaultDetails } from '../data/portfolioData';
 
-export default function Hero({ personalDetails = defaultDetails }) {
+export default function Hero({ personalDetails = defaultDetails, onNavigate }) {
   return (
     <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50">
       
@@ -37,25 +37,32 @@ export default function Hero({ personalDetails = defaultDetails }) {
             </p>
 
             {/* Technology Line */}
-            <div className="inline-flex flex-wrap items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 border border-slate-200 text-xs sm:text-sm font-semibold text-slate-700 font-mono mb-8">
+            <div
+              style={{ fontFamily: '"Times New Roman", Times, serif' }}
+              className="inline-flex flex-wrap items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 border border-slate-200 text-sm sm:text-base font-semibold text-slate-800 tracking-wide mb-8"
+            >
               <span>React.js</span>
-              <span className="text-indigo-400">•</span>
+              <span className="text-indigo-400 font-sans font-normal">|</span>
               <span>Node.js</span>
-              <span className="text-indigo-400">•</span>
+              <span className="text-indigo-400 font-sans font-normal">|</span>
               <span>Express.js</span>
-              <span className="text-indigo-400">•</span>
+              <span className="text-indigo-400 font-sans font-normal">|</span>
               <span>MongoDB</span>
-              <span className="text-indigo-400">•</span>
+              <span className="text-indigo-400 font-sans font-normal">|</span>
               <span>Java</span>
-              <span className="text-indigo-400">•</span>
-              <span>Spring Boot</span>
             </div>
 
             {/* Buttons */}
             <div className="flex flex-wrap items-center gap-4 mb-6 w-full sm:w-auto">
               <a
                 href="#projects"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm shadow-md shadow-indigo-600/20 hover:-translate-y-0.5 transition-all duration-200"
+                onClick={(e) => {
+                  if (onNavigate) {
+                    e.preventDefault();
+                    onNavigate('projects');
+                  }
+                }}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm shadow-md shadow-indigo-600/20 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
               >
                 <span>View Projects</span>
                 <ArrowRight className="w-4 h-4" />
@@ -63,18 +70,18 @@ export default function Hero({ personalDetails = defaultDetails }) {
 
               <a
                 href="#contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 shadow-xs hover:border-slate-400 transition-all duration-200"
+                onClick={(e) => {
+                  if (onNavigate) {
+                    e.preventDefault();
+                    onNavigate('contact');
+                  }
+                }}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 shadow-xs hover:border-slate-400 transition-all duration-200 cursor-pointer"
               >
                 <Download className="w-4 h-4 text-indigo-600" />
-                <span>Download Resume</span>
+                <span>Contact & Connect</span>
               </a>
             </div>
-
-            {/* Secondary Text */}
-            <p className="text-xs sm:text-sm text-slate-500 font-medium flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500" />
-              <span>Currently building real-world applications at Speshway Solutions.</span>
-            </p>
 
           </div>
 
@@ -85,11 +92,11 @@ export default function Hero({ personalDetails = defaultDetails }) {
               {/* High-end Framed Profile Image Card */}
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border-4 border-white shadow-2xl bg-slate-900 group">
                 <img
-                  src="/hero-profile.jpg"
-                  alt="GANDHUDI SAI KIRAN"
+                  src={personalDetails.heroImage || personalDetails.avatar || "/hero-profile.jpg"}
+                  alt={personalDetails.name || "GANDHUDI SAI KIRAN"}
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                   onError={(e) => {
-                    e.target.src = '/avatar.jpg';
+                    e.target.src = personalDetails.avatar || '/avatar.jpg';
                   }}
                 />
                 
@@ -98,9 +105,11 @@ export default function Hero({ personalDetails = defaultDetails }) {
 
                 {/* Floating Title Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white space-y-1">
-                  <h3 className="text-xl font-bold tracking-tight">GANDHUDI SAI KIRAN</h3>
+                  <h3 className="text-xl font-bold tracking-tight">
+                    {personalDetails.name || "GANDHUDI SAI KIRAN"}
+                  </h3>
                   <p className="text-xs font-mono text-indigo-300 font-semibold uppercase tracking-wider">
-                    MERN Stack & Java Developer
+                    {personalDetails.secondaryRole || personalDetails.role || "MERN Stack & Java Developer"}
                   </p>
                 </div>
               </div>

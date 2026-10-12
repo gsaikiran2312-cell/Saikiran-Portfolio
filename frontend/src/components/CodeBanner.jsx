@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download, Code2 } from 'lucide-react';
+import { Code2 } from 'lucide-react';
 import { codeBannerData as defaultCodeBanner, personalDetails as defaultDetails } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
 
@@ -47,14 +47,6 @@ export default function CodeBanner({ bannerData = defaultCodeBanner, personalDet
             >
               <LinkedinIcon className="w-4 h-4" />
               <span>LinkedIn</span>
-            </a>
-
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs shadow-md transition-all"
-            >
-              <Download className="w-4 h-4" />
-              <span>Download Resume</span>
             </a>
           </div>
 

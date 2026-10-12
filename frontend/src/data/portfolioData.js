@@ -9,11 +9,14 @@ export const personalDetails = {
   experience: "1.6+ Years Exp",
   primaryTech: ["React.js", "Node.js", "Express.js", "MongoDB", "Java", "Spring Boot"],
   location: "Andhra Pradesh, India",
-  avatar: "/assets/avatar.jpg",
+  avatar: "/avatar.jpg",
+  heroImage: "/hero-profile.jpg",
   email: "gsaikiran2312@gmail.com",
   phone: "+91 6302241083",
   github: "https://github.com/gsaikiran2312-cell",
   linkedin: "https://linkedin.com/in/saikiran-gandhudi",
+  instagram: "https://instagram.com",
+  whatsapp: "https://wa.me/916302241083",
   resumeUrl: "#contact"
 };
 

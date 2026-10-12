@@ -1,16 +1,20 @@
 @import "tailwindcss";
 
 @layer base {
-  body {
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-  }
-  
-  h1, h2, h3, .font-heading {
-    font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+  :root {
+    --font-times: "Times New Roman", Times, serif;
   }
 
-  code, pre, .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+  html, body {
+    font-family: "Times New Roman", Times, serif !important;
+  }
+
+  *, ::before, ::after {
+    font-family: "Times New Roman", Times, serif !important;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea, label, div, select, .font-heading, .font-sans, .font-mono, .font-serif {
+    font-family: "Times New Roman", Times, serif !important;
   }
 }
 
